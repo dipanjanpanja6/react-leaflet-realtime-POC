@@ -1,0 +1,22 @@
+{
+  "name": "react-leaflet-drift-markerv2",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "main": "src/index.js",
+  "dependencies": {
+    "leaflet": "1.5.1",
+    "react": "16.9.0",
+    "react-dom": "16.9.0",
+    "react-leaflet": "2.4.0",
+    "react-leaflet-drift-marker": "2.0.0",
+    "react-scripts": "1.1.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
