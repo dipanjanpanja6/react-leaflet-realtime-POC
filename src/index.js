@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react"
 import ReactDOM from "react-dom"
 import L from "leaflet"
-import { Map, TileLayer, Popup, Tooltip, Marker, GeoJSON } from "react-leaflet"
+import { MapContainer, TileLayer, Popup, Tooltip, GeoJSON } from "react-leaflet"
 import ReactLeafletDriftMarker from "react-leaflet-drift-marker"
+import ReactLeafletGoogleLayer from "react-leaflet-google-layer"
+
 import geojson from "./building_data.json"
 import "./styles.css"
 
@@ -13,6 +15,7 @@ var myicon = L.divIcon({ html: '<div class="pin"></div>', iconSize: [18, 18] }),
   loop2index = 22,
   highroadIndex = -1,
   reverse = false
+
 const timeout = 2000
 
 const getPoints = () => {
@@ -22,7 +25,7 @@ const getPoints = () => {
   ]
   const austin2 = [
     [30.341442112227067, -97.61458396007917],
-    [30.339636557667372, -97.61432323124303],
+    // [30.339636557667372, -97.61432323124303],
     [30.34619857848444, -97.61380331166963],
     [30.354598592961544, -97.61679736973723],
     [30.36299805236565, -97.6138011124856],
@@ -92,46 +95,36 @@ const App = () => {
     }, timeout)
     return () => clearInterval(timer)
   }, [])
-
   return (
     <div>
-      <Map
+      <MapContainer
         bounds={[
           [30.341442112227067, -97.61458396007917],
           [30.339636557667372, -97.61432323124303],
           [30.42452127431796, -97.66210189454922],
         ]}
         zoom={17}>
-        <TileLayer attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors' url="https://{s}.tile.osm.org/{z}/{x}/{y}.png" />
+        {/* <TileLayer
+          attribution='&amp;copy <a href="http://osm.org/copyright">GoogleMaps</a> contributors'
+          url="http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}"
+          subdomains={["mt0", "mt1", "mt2", "mt3"]}
+        /> */}
+        <ReactLeafletGoogleLayer apiKey="YOUR_API_KEY" type={"roadmap"} />
         <GeoJSON data={geojson} />
         <ReactLeafletDriftMarker position={state.loop1} duration={timeout} icon={myicon}>
           <Popup>
-            Hello, This is to know the details about the car :). <br /> Name - Yellow car. <br /> Phone - 781-835-5258
-            <br />
-            444 Hillcrest Avenue
-            <br /> Cambridge, MA 02141
+            Hello, This is to know the details about the car :). <br /> Name - Green. <br /> Always running
           </Popup>
           <Tooltip>Carl L. West</Tooltip>
         </ReactLeafletDriftMarker>
         <ReactLeafletDriftMarker position={state.loop2} duration={timeout} icon={myicon2}>
-          <Popup>
-            Hello, This is to know the details about the car :). <br /> Name - Yellow car. <br /> Phone - 781-835-5258
-            <br />
-            444 Hillcrest Avenue
-            <br /> Cambridge, MA 02141
-          </Popup>
-          <Tooltip>Carl L. West</Tooltip>
+          <Tooltip>Point 1</Tooltip>
         </ReactLeafletDriftMarker>
         <ReactLeafletDriftMarker position={state.loop3} duration={1000} icon={myicon3}>
-          <Popup>
-            Hello, This is to know the details about the car :). <br /> Name - Yellow car. <br /> Phone - 781-835-5258
-            <br />
-            444 Hillcrest Avenue
-            <br /> Cambridge, MA 02141
-          </Popup>
-          <Tooltip>Carl L. West</Tooltip>
+          <Popup>Hello, This is to know the details about the point :).</Popup>
+          <Tooltip>Point 2 with popup</Tooltip>
         </ReactLeafletDriftMarker>
-      </Map>
+      </MapContainer>
     </div>
   )
 }
