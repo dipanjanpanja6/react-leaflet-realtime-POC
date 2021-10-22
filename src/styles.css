@@ -13,7 +13,27 @@
   border: none;
 }
 
-html, body {
-	height: 100%;
-	margin: 0px;	
+html,
+body {
+  height: 100%;
+  margin: 0px;
+}
+
+.pin {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #2bbd23;
+}
+.pin2 {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #edab06;
+}
+.pin3 {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ed066a;
 }

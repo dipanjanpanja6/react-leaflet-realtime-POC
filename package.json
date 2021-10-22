@@ -5,18 +5,27 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
-    "leaflet": "1.5.1",
-    "react": "16.9.0",
-    "react-dom": "16.9.0",
-    "react-leaflet": "2.4.0",
-    "react-leaflet-drift-marker": "2.0.0",
-    "react-scripts": "1.1.4"
+    "@craco/craco": "^6.2.0",
+    "leaflet": "1.7.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-leaflet": "3.2.1",
+    "react-leaflet-drift-marker": "3.0.0",
+    "react-leaflet-google-layer": "2.0.4",
+    "react-scripts": "4.0.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "craco-alias": "^3.0.1"
+  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ]
 }
