@@ -5,7 +5,7 @@ import { MapContainer, TileLayer, Popup, Tooltip, GeoJSON } from "react-leaflet"
 import ReactLeafletDriftMarker from "react-leaflet-drift-marker"
 import ReactLeafletGoogleLayer from "react-leaflet-google-layer"
 
-import geojson from "./building_data.json"
+import geojson from "@/data/building_data.json"
 import "./styles.css"
 
 var myicon = L.divIcon({ html: '<div class="pin"></div>', iconSize: [18, 18] }),
